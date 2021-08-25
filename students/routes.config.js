@@ -26,4 +26,8 @@ exports.routesConfig = function (app) {
     body('lastName').isLength({ min: 2, max:30}),
     body('gender', "Invalid gender, must be either Male or Female").matches(/^(Male|Female|MALE|FEMALE|male|female)$/),
     [StudentsController.updateByStudentID]);
+
+    app.delete('/una/students/:studentID', [
+        StudentsController.removeByStudentID
+    ]);
 }

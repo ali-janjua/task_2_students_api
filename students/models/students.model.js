@@ -63,3 +63,15 @@ exports.findByStudentIdAndUpdate = (id, studentData) => {
             })
     });
 };
+
+exports.removeByStudentID = (id) => {
+    return new Promise((resolve, reject) => {
+        Student.deleteMany({studentID: id}, (err) => {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(err);
+            }
+        });
+    });
+};
