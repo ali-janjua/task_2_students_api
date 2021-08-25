@@ -50,3 +50,16 @@ exports.findByStudentID = (id) => {
             })
     });
 };
+
+exports.findByStudentIdAndUpdate = (id, studentData) => {
+    return new Promise((resolve, reject) => {
+        Student.find({studentID: id})
+            .exec(function (err, students) {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(Student.findOneAndUpdate({ studentID: id}, studentData, {new: true}));
+                }
+            })
+    });
+};

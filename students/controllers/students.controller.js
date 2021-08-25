@@ -40,6 +40,25 @@ exports.getByStudentID = (req, res) => {
     
 };
 
+exports.updateByStudentID = (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    StudentModel.findByStudentIdAndUpdate(req.params.studentID, req.body)
+        .then((result) => {
+            result = result.toJSON();
+            delete result._id;
+            delete result.__v;
+            res.status(200).send(result);
+        })
+        .catch((err) => {
+            res.status(404).json({error: "Not found"})
+        });
+    
+};
+
 exports.createStudent = (req, res) => {
     
     const errors = validationResult(req);
