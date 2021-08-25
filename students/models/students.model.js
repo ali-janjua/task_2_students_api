@@ -1,16 +1,24 @@
 const mongoose = require('../../common/services/mongoose.service').mongoose;
+var uniqueValidator = require('mongoose-unique-validator');
 const Schema = mongoose.Schema;
 
 const studentSchema = new Schema({
-    studentID: String,
+    studentID: {
+        type:String,
+        unique: true
+    },
     firstName: String,
     lastName: String,
     gender: String
  });
 
- const Student = mongoose.model('Students', studentSchema);
+studentSchema.plugin(uniqueValidator);
 
- exports.createStudent = (studentData) => {
+
+
+const Student = mongoose.model('Students', studentSchema);
+
+exports.createStudent = (studentData) => {
     const student = new Student(studentData);
     return student.save();
 };
@@ -20,11 +28,24 @@ exports.list = (perPage, page) => {
         Student.find()
             .limit(perPage)
             .skip(perPage * page)
-            .exec(function (err, users) {
+            .exec(function (err, students) {
                 if (err) {
                     reject(err);
                 } else {
-                    resolve(users);
+                    resolve(students);
+                }
+            })
+    });
+};
+
+exports.findByStudentID = (id) => {
+    return new Promise((resolve, reject) => {
+        Student.find({studentID: id})
+            .exec(function (err, students) {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(students[0]);
                 }
             })
     });
