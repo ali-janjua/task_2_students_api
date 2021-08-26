@@ -37,7 +37,7 @@ describe('Students', () => {
         });
     });
 
-    describe('/GET student', () => {
+    describe('/GET student/:studentID', () => {
         it('it should not GET a record that does not exist', (done) => {
             chai.request(server)
                 .get('/una/students/ABC001')
@@ -50,7 +50,7 @@ describe('Students', () => {
         });
     });
 
-    describe('/GET students', () => {
+    describe('/GET una/students', () => {
         it('it should GET a list of students', (done) => {
             const s = StudentModel.student({studentID: "ABC001", firstName: "Michael", lastName: "Piper", gender: "Male"});
             s.save()
@@ -70,7 +70,7 @@ describe('Students', () => {
         });
     });
 
-    describe('/GET student', () => {
+    describe('/GET una/student/:studentID', () => {
         it('it should GET a record', (done) => {
             const record = {studentID: "ABC001", firstName: "Michael", lastName: "Piper", gender: "Male"}
             const s = StudentModel.student(record);
@@ -93,7 +93,7 @@ describe('Students', () => {
     /*
     * Test the /POST route
     */
-    describe('/POST student', () => {
+    describe('/POST una/student', () => {
         it('it should not POST a student without student ID', (done) => {
             let student = {
                 firstName: "Michael",
@@ -113,7 +113,7 @@ describe('Students', () => {
         });
     });
 
-    describe('/POST student', () => {
+    describe('/POST una/student', () => {
         it('it should not POST a student invalid student ID format', (done) => {
             let student = {
                 studentID: "123456", // Valid format is 3 characters then 3 digits
@@ -134,7 +134,7 @@ describe('Students', () => {
         });
     });
 
-    describe('/POST student', () => {
+    describe('/POST una/student', () => {
         it('it should not POST a student invalid gender', (done) => {
             let student = {
                 studentID: "ABC001",
@@ -155,7 +155,7 @@ describe('Students', () => {
         });
     });
 
-    describe('/POST student', () => {
+    describe('/POST una/student', () => {
         it('it should POST a student', (done) => {
             let student = {
                 studentID: "ABC001",
@@ -176,7 +176,7 @@ describe('Students', () => {
     /*
     * Test the /PUT route
     */
-    describe('/PUT student', () => {
+    describe('/PUT una/student/:studentID', () => {
         it('it should not update/PUT a student that does not exist', (done) => {
             let student = {
                 studentID: "ABC001",
@@ -194,7 +194,7 @@ describe('Students', () => {
         });
     });
 
-    describe('/PUT student', () => {
+    describe('/PUT una/student/:studentID', () => {
         it('it should update/PUT the student', (done) => {
             const record = {studentID: "ABC001", firstName: "Michael", lastName: "Piper", gender: "Male"}
             const s = StudentModel.student(record);
@@ -226,7 +226,7 @@ describe('Students', () => {
     /*
     * Test the /DELETE route
     */
-    describe('/DELETE student', () => {
+    describe('/DELETE una/student/:studentID', () => {
         it('it should DELETE a student', (done) => {
             // Create a record first
             const record = {studentID: "ABC001", firstName: "Michael", lastName: "Piper", gender: "Male"}
