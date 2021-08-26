@@ -79,5 +79,8 @@ exports.removeByStudentID = (req, res) => {
     StudentModel.removeByStudentID(req.params.studentID)
         .then((result)=>{
             res.status(204).send({});
+        })
+        .catch((err) => {
+            res.status(400).json({error: err})
         });
 };

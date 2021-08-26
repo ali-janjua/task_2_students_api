@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+let config = require('config')
 let count = 0;
 
 const options = {
@@ -10,7 +11,7 @@ const options = {
 };
 const connectWithRetry = () => {
     console.log('MongoDB connection with retry')
-    mongoose.connect("mongodb://localhost:27017/students", options).then(()=>{
+    mongoose.connect(config.DBHost, options).then(()=>{
         console.log('MongoDB is connected')
     }).catch(err=>{
         console.log(err)

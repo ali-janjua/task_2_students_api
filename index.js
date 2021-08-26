@@ -23,10 +23,12 @@ app.use(function (req, res, next) {
 app.use(bodyParser.json());
 StudentsRoutes.routesConfig(app);
 
-https.createServer({
+var server = https.createServer({
     key: fs.readFileSync('server.key'),
     cert: fs.readFileSync('server.cert')
 }, app)
-.listen(port, function () {
+.listen(config.port, function () {
     console.log(`Students app listening at https://localhost:${config.port}`)
 })
+
+module.exports = server

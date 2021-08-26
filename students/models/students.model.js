@@ -17,6 +17,7 @@ studentSchema.plugin(uniqueValidator);
 
 
 const Student = mongoose.model('Students', studentSchema);
+//module.exports = Student;
 
 exports.createStudent = (studentData) => {
     const student = new Student(studentData);
@@ -75,3 +76,5 @@ exports.removeByStudentID = (id) => {
         });
     });
 };
+
+exports.student = Student
