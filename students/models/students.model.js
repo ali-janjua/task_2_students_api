@@ -1,5 +1,5 @@
 const mongoose = require('../../common/services/mongoose.service').mongoose;
-var uniqueValidator = require('mongoose-unique-validator');
+const uniqueValidator = require('mongoose-unique-validator');
 const Schema = mongoose.Schema;
 
 const studentSchema = new Schema({
@@ -13,11 +13,7 @@ const studentSchema = new Schema({
  });
 
 studentSchema.plugin(uniqueValidator);
-
-
-
 const Student = mongoose.model('Students', studentSchema);
-//module.exports = Student;
 
 exports.createStudent = (studentData) => {
     const student = new Student(studentData);

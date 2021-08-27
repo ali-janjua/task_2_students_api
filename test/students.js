@@ -107,7 +107,7 @@ describe('Students', () => {
                     res.should.have.status(400);
                     res.body.should.have.property('errors');
                     res.body.errors[0].param.should.be.eql("studentID");
-                    res.body.errors[0].msg.should.be.eql("Invalid value")
+                    res.body.errors[0].msg.should.be.eql("Invalid studentID")
                     done();
                 });
         });
@@ -128,7 +128,7 @@ describe('Students', () => {
                     res.should.have.status(400);
                     res.body.should.have.property('errors');
                     res.body.errors[0].param.should.be.eql("studentID");
-                    res.body.errors[0].msg.should.be.eql("Invalid value")
+                    res.body.errors[0].msg.should.be.eql("Invalid studentID")
                     done();
                 });
         });

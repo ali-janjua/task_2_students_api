@@ -1,11 +1,12 @@
 const express = require('express')
 const app = express()
-var fs = require('fs')
-var https = require('https')
-let config = require('config')
+const fs = require('fs')
+const https = require('https')
+const config = require('config')
+const bodyParser = require('body-parser')
+const expressValidator = require('express-validator')
 
-const bodyParser = require('body-parser');
-const StudentsRoutes = require('./students/routes.config');
+const StudentsRoutes = require('./students/routes.config')
 
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
@@ -21,8 +22,10 @@ app.use(function (req, res, next) {
 });
 
 app.use(bodyParser.json());
+app.use(expressValidator());
 StudentsRoutes.routesConfig(app);
 
+// HTTPS configuration
 var server = https.createServer({
     key: fs.readFileSync('server.key'),
     cert: fs.readFileSync('server.cert')
