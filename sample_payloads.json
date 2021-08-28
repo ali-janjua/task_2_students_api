@@ -1,0 +1,80 @@
+// GET https://localhost:3000/una/students
+
+// OUTPUT (200 OK)
+[
+    {
+        "_id": "61292c0b0cad175f8d8c1a15",
+        "studentID": "ABC001",
+        "firstName": "Daanyal",
+        "lastName": "Hughes",
+        "gender": "Male",
+        "__v": 0
+    },
+    {
+        "_id": "612a2eb63ff94cf422c000b7",
+        "studentID": "ABC002",
+        "firstName": "Tiegan",
+        "lastName": "Wilder",
+        "gender": "Female",
+        "__v": 0
+    }
+]
+
+
+
+
+// GET https://localhost:3000/una/students/ABC001
+
+// OUTPUT (200 OK)
+{
+    "studentID": "ABC001",
+    "firstName": "Ali",
+    "lastName": "Janjuaxxee",
+    "gender": "Male"
+}
+
+
+
+
+// POST https://localhost:3000/una/students
+
+// INPUT
+{
+    "studentID": "ABC003",
+    "firstName": "Magnus",
+    "lastName": "Larsson",
+    "gender": "Male"
+}
+
+// OUTPUT (201 Created)
+{
+    "id": "612a2fa93ff94cf422c000bd"
+}
+
+
+
+
+// PUT https://localhost:3000/una/students/ABC003
+
+// INPUT
+{
+    "studentID": "ABC003",
+    "firstName": "Magnus",
+    "lastName": "Svenson",
+    "gender": "Male"
+}
+
+// OUTPUT (200 OK)
+{
+    "studentID": "ABC003",
+    "firstName": "Magnus",
+    "lastName": "Svenson",
+    "gender": "Male"
+}
+
+
+
+
+// DELETE https://localhost:3000/una/students/ABC003
+
+// OUTPUT (204 No Content)
