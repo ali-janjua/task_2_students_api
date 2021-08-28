@@ -11,7 +11,7 @@ let should = chai.should();
 
 
 chai.use(chaiHttp);
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'; //HTTPS
 
 //Our parent block
 describe('Students', () => {
