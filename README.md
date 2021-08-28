@@ -12,9 +12,10 @@ To run the project, please use a command line the following:
 * `npm start`
     * It will run the server at port 3000. For example https://localhost:3000
     * API endpoints are accessable using /una path. For example:
-    ```
-    GET https://localhost:3000/una/students
-    ```
+      ```
+      GET https://localhost:3000/una/students
+      ```
+      Please check [sample_payloads.json](sample_payloads.json) file for exact JSON format for each API endpoint. 
 
 #### Tests
 To run the tests, please use a command line the following:
