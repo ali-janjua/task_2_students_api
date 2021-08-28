@@ -13,7 +13,7 @@ To run the project, please use a command line the following:
     * It will run the server at port 3000. For example https://localhost:3000
     * API endpoints are accessable using /una path. For example:
     ```
-    GET https://localhost:300/una/students
+    GET https://localhost:3000/una/students
     ```
 
 #### Tests
